@@ -10,7 +10,7 @@ import org.scaloid.common._
 import rx.android.schedulers.AndroidSchedulers
 import rx.android.{Events, Properties}
 import rx.lang.scala.JavaConversions._
-import rx.lang.scala.Observable
+import rx.lang.scala.{Observable, Observer}
 
 class MainActivity extends SActivity {
   private val TAG = "MainActivity"
@@ -22,11 +22,13 @@ class MainActivity extends SActivity {
     val charCountLabel = find[TextView](R.id.char_count)
 
     val message: Observable[String] = Events.text(messageField)
-    val charCount = Properties.text(charCountLabel)
+    val charCountObserver = Properties.text(charCountLabel)
 
-    message.map(str=> str.length.toString).subscribe(charCount)
+    val count = message.map(str => str.length)
+    count.map(n => n.toString).subscribe(charCountObserver)
 
     val send = find[Button](R.id.send)
+    count.map(_ > 0).subscribe(enabled => send.setEnabled(enabled))
     val sendClicked = Events.click(send)
 
     message.combineLatest(sendClicked).subscribe { textAndObject =>

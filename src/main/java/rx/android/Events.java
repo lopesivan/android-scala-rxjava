@@ -16,9 +16,11 @@ public class Events {
         String currentText = String.valueOf(view.getText());
         final BehaviorSubject<String> subject = BehaviorSubject.create(currentText);
         view.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) { }
+            @Override public void beforeTextChanged(
+                    CharSequence charSequence, int i, int i2, int i3) { }
 
-            @Override public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) { }
+            @Override public void onTextChanged(
+                    CharSequence charSequence, int i, int i2, int i3) { }
 
             @Override public void afterTextChanged(Editable editable) {
                 subject.onNext(editable.toString());
