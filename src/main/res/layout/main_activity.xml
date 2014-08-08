@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="100dp"
+               android:src="@drawable/funny_banner"
+               android:contentDescription="@string/banner_description"
+               android:id="@+id/banner"/>
+
+    <EditText android:layout_width="match_parent"
+              android:layout_weight="1"
+              android:singleLine="false"
+              android:gravity="bottom"
+              android:inputType="textCapSentences|textMultiLine"
+              android:id="@+id/message"
+              android:layout_height="fill_parent"/>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="0"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="0dp"
+                  android:layout_weight="8"
+                  android:textSize="18sp"
+                  android:paddingLeft="10dp"
+                  android:id="@+id/char_count"
+                  android:layout_height="wrap_content"/>
+
+        <Button android:layout_width="wrap_content"
+                android:id="@+id/send"
+                android:text="Enviar"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>
