@@ -24,7 +24,7 @@ public class Events {
                 subject.onNext(editable.toString());
             }
         });
-        return subject;
+        return subject.asObservable();
     }
 
     /*
@@ -37,7 +37,7 @@ public class Events {
                 subject.onNext(new Object());
             }
         });
-        return subject;
+        return subject.asObservable();
     }
 
     // no instances for helper class
