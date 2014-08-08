@@ -5,11 +5,11 @@ Example project of how to integrate Scala and RxJava with Android.
 
 To run you need sbt 0.13.1 or later installed. Just execute the following command:
   
-  sbt run
+    sbt run
 
 If you would like to open the project with IntelliJ ide, run the following command before opening it:
 
-  sbt gen-idea
+    sbt gen-idea
   
 That's it.
 
