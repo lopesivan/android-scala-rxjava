@@ -27,9 +27,9 @@ class MainActivity extends SActivity {
     val count = message.map(str => str.length)
     count.map(n => n.toString).subscribe(charCountObserver)
 
-    val send = find[Button](R.id.send)
-    count.map(_ > 0).subscribe(enabled => send.setEnabled(enabled))
-    val sendClicked = Events.click(send)
+    val sendButton = find[Button](R.id.send)
+    count.map(_ > 0).subscribe(enabled => sendButton.setEnabled(enabled))
+    val sendClicked = Events.click(sendButton)
 
     message.combineLatest(sendClicked).subscribe { textAndObject =>
       startActivity(new Intent(Intent.ACTION_VIEW, "http://www.google.com/search?q="+textAndObject._1))
